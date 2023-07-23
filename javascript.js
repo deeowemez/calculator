@@ -36,14 +36,18 @@ function operate(numOne, numTwo, op){
   }
 }
 
-function split(e, expression, operator){
+function split(){
   let splitArray = expression.split(`${operator}`, 2);
   console.log(splitArray);
-  console.log(splitArray[0]);
-  console.log(splitArray[1]);
+  // console.log(splitArray[0]);
+  // console.log(splitArray[1]);
+  if (splitArray[1] === 0){
+    alert("Undefined! Division by Zero");
+    return;
+  }
   let result = operate(Number(splitArray[0]), Number(splitArray[1]), `${operator}`);
   console.log(result);
-  prevDisplay.textContent = expression;
+  prevDisplay.textContent = result;
   currDisplay.textContent = result;
 }
 
@@ -62,7 +66,6 @@ function deleteDigit(){
   expression = delArray.join('');
   console.log(expression)
   currDisplay.textContent = expression;
-  // return deleted;
 }
 
 function clickBtn(e){
@@ -74,17 +77,16 @@ function clickBtn(e){
     operator = e.target.id;
     // console.log(operator);
   }
-  const equals = document.getElementById('equals');
-  equals.addEventListener('click', () => split(e, expression, operator));
-  const clear = document.getElementById('C');
-  clear.addEventListener('click', () => clearDisplay());
-  const delDigit = document.getElementById('B');
-  // delDigit.addEventListener('click', () => deleteDigit());
 };
-
 
 const currDisplay = document.getElementById('currentNumDisplay');
 const prevDisplay = document.getElementById('prevNumDisplay');
+const equals = document.getElementById('equals');
+equals.addEventListener('click', (e) => split());
+const clear = document.getElementById('C');
+clear.addEventListener('click', () => clearDisplay());
+const delDigit = document.getElementById('B');
+delDigit.addEventListener('click', () => deleteDigit());
 const numberBtn = document.getElementsByClassName('number');
 for (let i = 0; i < numberBtn.length; i++) {
   numberBtn[i].addEventListener('click', (e) => clickBtn(e));
