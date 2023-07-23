@@ -79,7 +79,7 @@ function clickBtn(e){
   const clear = document.getElementById('C');
   clear.addEventListener('click', () => clearDisplay());
   const delDigit = document.getElementById('B');
-  delDigit.addEventListener('click', () => deleteDigit());
+  // delDigit.addEventListener('click', () => deleteDigit());
 };
 
 
