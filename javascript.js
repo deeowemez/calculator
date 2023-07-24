@@ -104,7 +104,3 @@ const numberBtn = document.getElementsByClassName('number');
 for (let i = 0; i < numberBtn.length; i++) {
   numberBtn[i].addEventListener('click', (e) => clickBtn(e));
 }
-
-
-
-
