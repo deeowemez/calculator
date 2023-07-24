@@ -6,6 +6,7 @@ let numOne = '';
 let numTwo = '';
 let operator = [];
 let expression = '';
+let splitArray = [];
 
 function add(numOne, numTwo){
   return numOne + numTwo;
@@ -37,18 +38,29 @@ function operate(numOne, numTwo, op){
 }
 
 function split(){
-  let splitArray = expression.split(`${operator}`, 2);
+  let splitExp = expression;
+  console.log(operator);
+  let tempChar = operator[0]; 
+    for(let i = 1; i < operator.length; i++){
+      splitExp = splitExp.split(operator[i]).join(tempChar);
+    }
+  splitArray = splitExp.split(tempChar);
   console.log(splitArray);
-  // console.log(splitArray[0]);
-  // console.log(splitArray[1]);
-  if (splitArray[1] === 0){
-    alert("Undefined! Division by Zero");
-    return;
+
+  for (let op of operator){
+    console.log(splitArray[1]);
+    if (splitArray[1] === '0'){ 
+      alert("Undefined! Division by Zero");
+      return; 
+    }
+    let result = operate(Number(splitArray[0]), Number(splitArray[1]), `${op}`);
+    console.log(result);
+    splitArray.shift();
+    splitArray[0] = result;
+    console.log(splitArray);
   }
-  let result = operate(Number(splitArray[0]), Number(splitArray[1]), `${operator}`);
-  console.log(result);
-  prevDisplay.textContent = result;
-  currDisplay.textContent = result;
+  prevDisplay.textContent = `${expression} = ${splitArray}`;
+  currDisplay.textContent = splitArray;
 }
 
 function clearDisplay(){
@@ -74,7 +86,8 @@ function clickBtn(e){
   currDisplay.textContent = expression;
   console.log(expression);
   if (e.target.id === '+' || e.target.id === '-' || e.target.id === '÷' || e.target.id === 'x'){
-    operator = e.target.id;
+    operator.push(e.target.id);
+    // operator = e.target.id;
     // console.log(operator);
   }
 };
