@@ -1,9 +1,18 @@
+*{
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
 body{
   height: 100vh;
   display: flex;
   flex-direction: column;
+  align-items: center;
   font-family: 'Montserrat', sans-serif;
-  font-size: 20px;
+  /* font-size: 20px; */
+  font-weight: 800;
+  font-size: 30px;
 }
 
 .heading{
@@ -11,9 +20,15 @@ body{
   justify-content: center;
   font-family: 'Changa', sans-serif;
   letter-spacing: 3px;
-  padding: 10px;
   font-size: 30px;
   font-weight: 500;
+  padding: 0 5px;
+  /* margin-bottom: 10px; */
+  /* background: linear-gradient(
+    to bottom,
+    transparent 50%,
+    #fce041 100%
+  ); */
 }
 
 .outerContainer{
@@ -31,27 +46,32 @@ body{
   height: 700px;
   background-color: rgb(72,90,100);
   border-radius: 5%;
+  box-shadow: 0px 10px rgb(53,71,81), 25px 35px rgb(222,222,222);
 }
 
 .display{
   display: flex;
   flex-direction: column;
   align-items: flex-end;
-  /* justify-content: flex-end; */
   width: 420px;
   height: 110px;
   background-color: rgb(221,237,200);
   border-radius: 10px;
-  margin-top: 40px;
+  margin-top: 55px;
+  box-shadow: 0px 8px 10px 10px rgb(57,73,75), inset 0px 0px 8px 2px rgb(194,204,180);
 }
 
 #prevNumDisplay{
-  padding: 10px;
+  font-family: 'Tektur', sans-serif;
+  font-weight: 300;
+  padding: 10px 10px 0 10px;
 }
 
 #currentNumDisplay{
+  font-family: 'Tektur', sans-serif;
   padding: 0 10px;
   font-size: 50px;
+  font-weight: 500;
 }
 
 .numbers{
@@ -94,10 +114,18 @@ body{
   height: 70px;
   background-color: rgb(243,241,244);
   border-radius: 5px;
-  font-weight: 800;
-  font-size: 30px;
+  cursor: pointer;
+  color: rgb(51,60,65);
+  box-shadow: 0px 5px rgb(188,199,189);
+}
+
+#cat{
+  font-size: 15px;
 }
 
 #equals{
+  color: rgb(255,254,255);
   height: 160px;
+  background-color: rgb(251,172,43);
+  box-shadow: 0px 5px rgb(201,121,10);
 }
